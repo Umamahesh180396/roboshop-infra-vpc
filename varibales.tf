@@ -82,4 +82,45 @@ variable "roboshop_db_subnet_group" {
   default = "roboshop_db_subnet_group"
 }
 
+variable "sg_tags" {
+  default = {
+    Name = "roboshop-allow-all-sg"
+  }
+}
+
+variable "sg_description" {
+  default = "Allow all sg"
+}
+
+variable "sg_name" {
+  default = "Allow all sg"
+}
+
+variable "sg_ingress_rules" {
+  default = [
+    {
+      description = "Allow all sg"
+      from_port = 0
+      to_port = 0
+      protocol = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  ]
+}
+
+variable "instances" {
+  default = {
+    MongoDB = "t3.medium"
+    MySQL = "t3.medium"
+    Redis = "t2.micro"
+    RabbitMQ = "t2.micro"
+    Catalogue = "t2.micro"
+    Cart = "t2.micro"
+    User = "t2.micro"
+    Shipping = "t2.micro"
+    Payment = "t2.micro"
+    Web = "t2.micro"
+  }
+}
+
 
